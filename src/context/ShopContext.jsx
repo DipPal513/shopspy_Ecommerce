@@ -54,6 +54,7 @@ const ShopContextProvider = (props) => {
     setCartItems,
     addToCart,
     removeFromCart,
+    setProducts
   };
 
   return (

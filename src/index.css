@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;    
 
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100&display=swap');
+
+  *{
+    font-family: 'Roboto', sans-serif;
+  }
 /* --------header file----- */
 
 
@@ -9,6 +15,7 @@ li{
   margin-left: 0 !important;
 }
 /* ----banner------- */
+
 
 .banner{
   background-image: url(https://medsy-classic.vercel.app/_next/static/images/hero-banner-img-e90e52e3ad0984e060be92156b9333c6.jpg);

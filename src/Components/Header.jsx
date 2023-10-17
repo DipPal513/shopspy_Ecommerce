@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { BsCart4 } from "react-icons/bs";
+import { BiHeart } from "react-icons/bi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   FaUser,
@@ -40,13 +41,10 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const sideNavHandler = (e)=>{
-    isOpen(!open)
-  }
 
   return (
     <nav
-      className={`w-full flex justify-between px-20 py-10 items-center bg-white z-[1111111111] shadow-lg ${
+      className={`w-full flex justify-between sm:px-20 px-4 py-10 items-center bg-white z-[1111111111] shadow-lg ${
         scrolled ? "fixed top-0" : ""
       }`}
     >
@@ -69,11 +67,8 @@ const Header = () => {
       </div>
       <div
         className={`sidenav_area p-10 space-x-6 sideNav absolute top-0 bg-gray-100 h-[100vh] w-[calc(100vw-30vw)] md:w-[calc(100vw-70vw)] transition-all duration-700 ${
-          open
-            ? "left-0"
-            : "left-[-1000%]  z-[111111]"
+          open ? "left-0" : "left-[-1000%]  z-[111111]"
         }`}
-        onClickCapture={e => sideNavHandler(e)}
       >
         <button
           className="absolute top-30 right-10"
@@ -81,7 +76,10 @@ const Header = () => {
             isOpen(!open);
           }}
         >
-          <RxCross2 style={{fontSize:'35px'}}className="transition duration-500 hover:text-red-500"/>
+          <RxCross2
+            style={{ fontSize: "35px" }}
+            className="transition duration-500 hover:text-red-500"
+          />
         </button>
         <h1 className="text-xl text-gray-800 font-bold">
           SHOPSP
@@ -92,6 +90,7 @@ const Header = () => {
             Y
           </span>
         </h1>
+
         <ul className="flex justify-center items-left flex-col space-y-3 mt-10">
           <li className={`text-gray-700 hover:text-black hover:underline`}>
             <Link to="/user">
@@ -129,7 +128,7 @@ const Header = () => {
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 pt-0.5 text-gray-600"
+            className="hidden sm:block h-5 w-5 pt-0.5 text-gray-600"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -142,25 +141,26 @@ const Header = () => {
             />
           </svg>
           <input
-            className="ml-2 outline-none bg-transparent font-"
+            className="ml-2 outline-none bg-transparent sm:block hidden "
             type="text"
             name="search"
             id="search"
             placeholder="Search..."
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                // Handle the search on pressing Enter
-                console.log("Searching for:", e.target.value);
-                // You can replace this with your actual search functionality
-              }
-            }}
           />
+          <button className="flex items-center justify-center pointer mr-4">
+            <BiHeart size={25}/>
+            <sup className="font-bold bg-red-500 w-5 h-5 flex items-center justify-center text-white rounded-xl">
+              {total}
+            </sup>
+          </button>
           <button
             className="flex items-center justify-center pointer"
             onClick={handleCart}
           >
-            <BsCart4 />
-            <sup className="">{total}</sup>
+            <BsCart4 size={25} />
+            <sup className="font-bold bg-red-500 w-5 h-5 flex items-center justify-center text-white rounded-xl">
+              {total}
+            </sup>
           </button>
         </div>
       </div>

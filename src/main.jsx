@@ -12,7 +12,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <ShopContextProvider>
     {/* <Header /> */}
     <RouterProvider router={router} />
+    {
+      window.scrollY > 100 &&
     <ScrollToTop smooth />
+    }
 
   </ShopContextProvider>
 );

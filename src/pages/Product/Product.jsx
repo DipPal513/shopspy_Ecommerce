@@ -1,17 +1,20 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
+import { BiHeart } from "react-icons/bi";
 
 const Product = ({ products, load}) => {
   const { addToCart } = useContext(ShopContext);
   const [active , setActive] = useState(false);
   const total = !load ? 9 : -1;
+  console.log(active)
   return (
     <>
       {products?.slice(0,total).map((product) => (
         <div
           key={product.id}
-          className="bg-white p-4 shadow-lg mb-4 hover:shadow"
+          className={`bg-white p-4 shadow-lg mb-4 hover:shadow relative overflow-hidden`}
+          // onMouseOver={()=> setActive(!active)}
         >
           <div className="relative h-64 overflow-hidden">
             <img
@@ -53,6 +56,9 @@ const Product = ({ products, load}) => {
                 </button>
               </Link>
             </div>
+          </div>
+          <div className={`icon absolute ${active ?"right-0 flex" : "right-[-10000] hidden"} bottom-1/3 shadow-lg w-10 h-8  items-center justify-center duration-500 transition `}>
+            <BiHeart size={20}/>
           </div>
         </div>
       ))}
