@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 import Products from "../pages/Product/Products";
 import NotFound from "../pages/NotFound";
 import DisplayProduct from "../pages/Product/displayProduct";
-import CartItem from "../pages/CartItems";
 import CartItems from "../pages/CartItems";
 
 const router = createBrowserRouter([
@@ -21,8 +20,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "products", element: <Products /> },
       { path: "product/:id", element: <DisplayProduct /> },
-      { path: "products", element: <Products /> },
-      { path: "cartitems", element: <CartItems /> },
+      { path: "cartitems", element: <CartItems /> }, // Use CartItems instead of CartItem
       { path: "*", element: <NotFound /> },
     ],
   },
