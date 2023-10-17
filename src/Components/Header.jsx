@@ -10,12 +10,15 @@ import {
   FaProductHunt,
   FaHeart,
   FaShoppingCart,
-} from "react-icons/fa";
+  FaMoon,
+  FaSun,
+} from "react-icons/fa"; // Import FaMoon and FaSun icons
 import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
   const [open, isOpen] = useState(false);
   const [scrolled, isScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // State to control dark mode
   const { cartItems } = useContext(ShopContext);
   const navigate = useNavigate();
   const handleCart = () => {
@@ -42,11 +45,16 @@ const Header = () => {
     };
   }, []);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    // You can apply your dark mode styles here
+  };
+
   return (
     <nav
       className={`w-full flex justify-between sm:px-20 px-4 py-10 items-center bg-white z-[1111111111] shadow-lg ${
         scrolled ? "fixed top-0" : ""
-      }`}
+      } ${darkMode ? "dark-mode" : ""}`}
     >
       <div className="flex gap-x-4">
         <button className="" onClick={() => isOpen(!open)}>
@@ -126,6 +134,17 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <div className="flex items-center">
+          {/* Day/Night Toggle Button */}
+          <button
+            className="flex items-center justify-center pointer mr-4"
+            onClick={toggleDarkMode}
+          >
+            {darkMode ? (
+              <FaSun size={25} />
+            ) : (
+              <FaMoon size={25} />
+            )}
+          </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="hidden sm:block h-5 w-5 pt-0.5 text-gray-600"
@@ -148,7 +167,7 @@ const Header = () => {
             placeholder="Search..."
           />
           <button className="flex items-center justify-center pointer mr-4">
-            <BiHeart size={25}/>
+            <BiHeart size={25} />
             <sup className="font-bold bg-red-500 w-5 h-5 flex items-center justify-center text-white rounded-xl">
               {total}
             </sup>
