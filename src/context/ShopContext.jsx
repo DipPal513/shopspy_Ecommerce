@@ -8,10 +8,6 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
 
-
-  
-  
-
   useEffect(() => {
     // Fetch data from the API
     axios
@@ -35,20 +31,20 @@ const ShopContextProvider = (props) => {
   useEffect(() => {
     setCartItems(defaultCart());
   }, [products]);
- 
+
   const addToCart = (id) => {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
     Toast.fire({
       icon: "success",
       title: "item added successfully",
@@ -58,15 +54,15 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
     Toast.fire({
       icon: "success",
       title: "item removed...",
@@ -78,7 +74,7 @@ const ShopContextProvider = (props) => {
     setCartItems,
     addToCart,
     removeFromCart,
-    setProducts
+    setProducts,
   };
 
   return (
