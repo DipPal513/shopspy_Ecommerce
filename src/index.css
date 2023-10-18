@@ -1,32 +1,29 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100&display=swap');
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;    
+@tailwind utilities;
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100&display=swap');
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
-  *{
-    font-family: 'Roboto', sans-serif;
-  }
-/* --------header file----- */
-
-
-li{
+/* Header File */
+li {
   margin-left: 0 !important;
 }
-/* ----banner------- */
 
-
-.banner{
+/* Banner */
+.banner {
   background-image: url(https://medsy-classic.vercel.app/_next/static/images/hero-banner-img-e90e52e3ad0984e060be92156b9333c6.jpg);
-  /* background-position: center; */
-  background-origin:content-box;
+  background-origin: content-box;
 }
 
-
-/* SkeletonLoader.css */
+/* SkeletonLoader */
 .skeleton-loader {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0f0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: loading 1.5s infinite;
 }
@@ -40,7 +37,7 @@ li{
   }
 }
 
-/* scroll-to-top  */
+/* Scroll-to-Top */
 .scroll-to-top {
   background-color: transparent !important;
   box-shadow: 0 0 0 !important;

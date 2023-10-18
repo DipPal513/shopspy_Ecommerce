@@ -7,6 +7,7 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const [darkMode, setDarkMode] = useState(false); // State to control dark mode
 
   useEffect(() => {
     // Fetch data from the API
@@ -75,6 +76,8 @@ const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     setProducts,
+    darkMode,
+    setDarkMode
   };
 
   return (

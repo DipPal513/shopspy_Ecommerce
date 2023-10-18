@@ -7,9 +7,11 @@ import NotFound from "../pages/NotFound";
 import DisplayProduct from "../pages/Product/displayProduct";
 import CartItems from "../pages/CartItems";
 
+const baseName = "/shopspy_ecommerce"; // Set the base name
+
 const router = createBrowserRouter([
   {
-    path: "",
+    path: baseName, // Use the base name here
     element: (
       <>
         <Header />
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "products", element: <Products /> },
       { path: "product/:id", element: <DisplayProduct /> },
-      { path: "cartitems", element: <CartItems /> }, // Use CartItems instead of CartItem
+      { path: "cartitems", element: <CartItems /> },
       { path: "*", element: <NotFound /> },
     ],
   },
