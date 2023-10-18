@@ -7,11 +7,11 @@ import NotFound from "../pages/NotFound";
 import DisplayProduct from "../pages/Product/displayProduct";
 import CartItems from "../pages/CartItems";
 
-const baseName = "/shopspy_ecommerce"; // Set the base name
+// Set the base name
 
 const router = createBrowserRouter([
   {
-    path: baseName, // Use the base name here
+    path: "/", // Use the base name here
     element: (
       <>
         <Header />

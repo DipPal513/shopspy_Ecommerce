@@ -18,7 +18,7 @@ import { ShopContext } from "../context/ShopContext";
 const Header = () => {
   const [open, isOpen] = useState(false);
   const [scrolled, isScrolled] = useState(false);
-  const { cartItems ,darkMode,setDarkMode} = useContext(ShopContext);
+  const { cartItems, darkMode, setDarkMode } = useContext(ShopContext);
   const navigate = useNavigate();
   const handleCart = () => {
     navigate("/cartitems");
@@ -48,11 +48,13 @@ const Header = () => {
     setDarkMode(!darkMode);
     // You can apply your dark mode styles here
   };
-  darkMode ? document.body.classList.add("dark"):document.body.classList.remove("dark")
- 
+  darkMode
+    ? document.body.classList.add("dark")
+    : document.body.classList.remove("dark");
+
   return (
     <nav
-      className={`w-full flex justify-between sm:px-20 px-4 py-10 items-center bg-white z-[1111111111] dark:bg-black dark:text-white shadow-lg ${
+      className={`w-full flex justify-between sm:px-20 px-4 py-10 items-center bg-white z-[111] dark:bg-gray-900 dark:text-white shadow-lg ${
         scrolled ? "fixed top-0" : ""
       } ${darkMode ? "dark-mode" : ""}`}
     >
@@ -107,25 +109,25 @@ const Header = () => {
             </Link>
           </li>
           <li className={`text-gray-700 hover:text-black hover:underline`}>
-            <Link to="/shopspy_ecommerce/">
+            <Link to="/">
               <FaHome className="inline-block text-xl" />
               <span className="ml-3">Home</span>
             </Link>
           </li>
           <li className={`text-gray-700 hover:text-black hover:underline`}>
-            <Link to="/shopspy_ecommerce/products">
+            <Link to="/products">
               <FaProductHunt className="inline-block text-xl" />
               <span className="ml-3">Products</span>
             </Link>
           </li>
           <li className={`text-gray-700 hover:text-black hover:underline`}>
-            <Link to="/shopspy_ecommerce/favorites">
+            <Link to="/favorites">
               <FaHeart className="inline-block text-xl" />
               <span className="ml-3">Favorites</span>
             </Link>
           </li>
           <li className={`text-gray-700 hover:text-black hover:underline`}>
-            <Link to="/shopspy_ecommerce/cartitems">
+            <Link to="/cartitems">
               <FaShoppingCart className="inline-block text-xl" />
               <span className="ml-3">Cart</span>
             </Link>
@@ -139,11 +141,7 @@ const Header = () => {
             className="flex items-center justify-center pointer mr-4"
             onClick={toggleDarkMode}
           >
-            {darkMode ? (
-              <FaSun size={25} />
-            ) : (
-              <FaMoon size={25} />
-            )}
+            {darkMode ? <FaSun size={25} /> : <FaMoon size={25} />}
           </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"

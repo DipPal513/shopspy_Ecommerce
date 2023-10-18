@@ -45,7 +45,7 @@ const Products = () => {
   console.log(filteredProducts);
 
   return (
-    <div className="all_products mt-10 py-10">
+    <div className="all_products mt-10 py-10 dark:bg-gray-900">
       <div className="max-w-screen-lg mx-auto px-4">
         {location.pathname !== "/" ? (
           <button
@@ -58,7 +58,7 @@ const Products = () => {
           ""
         )}
 
-        <h2 className="text-3xl mb-3">ALL PRODUCTS</h2>
+        <h2 className="text-3xl mb-3 dark:text-white">ALL PRODUCTS</h2>
 
         {/* Category Selector */}
         <div className="mb-3">

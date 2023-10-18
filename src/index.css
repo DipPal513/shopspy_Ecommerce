@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body.dark{
+  background-color: #111827;
+}
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -41,4 +44,7 @@ li {
 .scroll-to-top {
   background-color: transparent !important;
   box-shadow: 0 0 0 !important;
+}
+.swal2-show{
+  z-index: 11111111111111111 !important;
 }

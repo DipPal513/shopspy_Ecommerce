@@ -1,9 +1,13 @@
+import React from "react";
+import router from "./routes/Router";
+import { RouterProvider } from "react-router-dom";
 
+import ShopContextProvider from "./context/ShopContext";
 function App() {
   return (
-    <>
-      <h1 className="text-gray-500 uppercase">this is tialwind</h1>
-    </>
+    <ShopContextProvider>
+      <RouterProvider router={router} />
+    </ShopContextProvider>
   );
 }
 

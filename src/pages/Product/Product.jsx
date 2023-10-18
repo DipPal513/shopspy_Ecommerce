@@ -13,10 +13,10 @@ const Product = ({ products, load}) => {
       {products?.slice(0,total).map((product) => (
         <div
           key={product.id}
-          className={`bg-white p-4 shadow-lg mb-4 hover:shadow relative overflow-hidden`}
+          className={`bg-white dark:bg-gray-700  p-4 shadow-lg mb-4 hover:shadow relative overflow-hidden`}
           // onMouseOver={()=> setActive(!active)}
         >
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-64 overflow-hidden dark:text-white">
             <img
               src={product.thumbnail}
               alt={product.title}
@@ -24,10 +24,10 @@ const Product = ({ products, load}) => {
             />
           </div>
           <div className="p-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
               {product.title}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-100">
               {product.description.length > 150
                 ? `${product.description.slice(0, 150)}...`
                 : product.description}
@@ -39,7 +39,7 @@ const Product = ({ products, load}) => {
                 </button>
               </Link>
             )}
-            <p className="text-gray-600 font-semibold mt-2">
+            <p className="text-gray-600 font-semibold mt-2 dark:text-gray-100">
               ${product.price.toFixed(2)}
             </p>
             <div className="mt-4">
@@ -51,7 +51,7 @@ const Product = ({ products, load}) => {
               </button>
               <Link to={`/product/${product.id}`}>
                 <button className=" ms-4 bg-white-600 text-black shadow px-4 py-2 hover:bg-red-500
-                hover:text-white transition duration-300 border-0 rounded-none">
+                hover:text-white transition duration-300 border-0 rounded-none dark:bg-white dark:hover:bg-blue-400">
                   Details
                 </button>
               </Link>

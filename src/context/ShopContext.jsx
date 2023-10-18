@@ -8,6 +8,7 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [darkMode, setDarkMode] = useState(false); // State to control dark mode
+  const [networkError, setNetWorkError] = useState(false); // State to control dark mode
 
   useEffect(() => {
     // Fetch data from the API
@@ -15,8 +16,12 @@ const ShopContextProvider = (props) => {
       .get("https://dummyjson.com/products")
       .then((response) => {
         setProducts(response.data.products);
+        setNetWorkError(false);
       })
       .catch((error) => {
+        if(error.message == "Network Error"){
+          setNetWorkError(!networkError);
+        }
         console.error("Error fetching data:", error);
       });
   }, []);
@@ -39,7 +44,7 @@ const ShopContextProvider = (props) => {
       toast: true,
       position: "top-end",
       showConfirmButton: false,
-      timer: 3000,
+      timer: 2000,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -77,8 +82,20 @@ const ShopContextProvider = (props) => {
     removeFromCart,
     setProducts,
     darkMode,
-    setDarkMode
+    setDarkMode,
   };
+  const errMsg = ()=>{
+   
+    Swal.fire({
+      icon: "error",
+      title: "No internet Connection",
+    });
+    console.log(
+      "function fired...."
+    )
+  }
+
+  networkError? errMsg() : console.log("connection restored");
 
   return (
     <ShopContext.Provider value={contextValue}>
