@@ -35,32 +35,32 @@ const CartItems = () => {
       <div className="flex items-start mb-4">
         <button
           onClick={() => navigate(-1)} // Go back to the previous page
-          className="p-2 text-red-500 hover:text-red-800 flex items-center bg-white shadow"
+          className="p-2 text-red-500 hover:text-red-800 flex items-center dark:bg-gray-500 shadow"
         >
           <FaArrowLeft size={30} />
         </button>
       </div>
 
       <div className="flex flex-col md:flex-row shadow-md my-10">
-        <div className="w-full md:w-3/4 bg-white px-4 md:px-10 py-4 md:py-10">
+        <div className="w-full md:w-3/4 bg-white dark:bg-gray-800 px-4 md:px-10 py-4 md:py-10">
           <div className="flex justify-between border-b pb-4 md:pb-8">
-            <h1 className="font-semibold text-xl md:text-2xl">Shopping Cart</h1>
-            <h2 className="font-semibold text-xl md:text-2xl">
+            <h1 className="font-semibold text-xl md:text-2xl dark:text-white">Shopping Cart</h1>
+            <h2 className="font-semibold text-xl md:text-2xl dark:text-white">
               {totalQuantity} Items
             </h2>
           </div>
-          <div className="flex flex-col mt-4 md:mt-10 mb-4 md:mb-5">
+          <div className="flex flex-col mt-4 md:mt-10 mb-4 md:mb-5 dark:text-white">
             <div className="hidden md:flex mb-2">
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
+              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5 dark:text-gray-300">
                 Product Details
               </h3>
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-gray-600 dark:text-gray-300 text-xs uppercase w-1/5 text-center">
                 Quantity
               </h3>
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center dark:text-gray-300">
                 Price
               </h3>
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center dark:text-gray-300">
                 Total
               </h3>
             </div>
@@ -69,7 +69,8 @@ const CartItems = () => {
               if (quantity > 0) {
                 return (
                   <div
-                    className="flex items-center hover:bg-gray-100 -mx-4 md:-mx-8 px-4 md:px-6 py-4 md:py-5"
+                    className="flex items-center hover:bg-gray-100
+                  hover:dark:bg-gray-700 -mx-4 md:-mx-8 px-4 md:px-6 py-4 md:py-5"
                     key={product.id}
                   >
                     <div className="flex w-2/5">
@@ -127,7 +128,7 @@ const CartItems = () => {
         </div>
         <div
           id="summary"
-          className="w-full md:w-1/4 px-4 md:px-8 py-4 md:py-10"
+          className="w-full md:w-1/4 px-4 md:px-8 py-4 md:py-10 dark:text-white"
         >
           <h1 className="font-semibold text-xl md:text-2xl border-b pb-4 md:pb-8">
             Order Summary

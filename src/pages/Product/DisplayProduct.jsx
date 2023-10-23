@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { FaArrowLeft } from "react-icons/fa";
+import BreadCrumb from "./BreadCrumb";
 const DisplayProduct = () => {
   const navigate = useNavigate()
   const { products, addToCart } = useContext(ShopContext);
@@ -36,18 +37,11 @@ const imageClickHandler = (e)=>{
 }
   return (
     <>
-    <div className="flex justify-center items-center  flex-col">
-  
-      <div className="max-w-4xl w-full">
-      <button
-          onClick={() => navigate(-1)} // Go back to the previous page
-          className="p-2 text-red-500 hover:text-red-800 flex items-center bg-white shadow
-          "
-        >
-          <FaArrowLeft size={30} />
-          
-        </button>
-        <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
+    <div className="flex justify-center items-center  flex-col py-10">
+      <div className="max-w-4xl w-full ">
+      <BreadCrumb title={product.title}/>
+     
+        <div className="bg-gray-50 p-6 rounded-lg shadow-xl flex flex-col md:flex-row dark:bg-slate-800 dark:text-white">
           
           <div className="flex w-full md:w-1/2 pr-4 flex-col-reverse">
             <div className="side-images flex gap-x-7 mt-3">
@@ -62,8 +56,8 @@ const imageClickHandler = (e)=>{
           </div>
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
-            <p className="text-gray-500 mb-4 text-sm">{product.description}</p>
-            <p className="text-gray-700 mb-4">Only {product.stock}(stcoks) Available</p>
+            <p className="text-gray-500 mb-4 text-sm dark:text-gray-200">{product.description}</p>
+            <p className="text-gray-700 mb-4 dark:text-gray-400">Only {product.stock}(stcoks) Available</p>
 
             <div className="flex items-center mb-4">
               <div className="text-lg text-blue-600 font-semibold">
@@ -79,11 +73,11 @@ const imageClickHandler = (e)=>{
             <div className="mt-4 space-x-2">
               <button
                 onClick={() => addToCart(product.id)}
-                className="bg-green-500 text-white px-4 py-2 border border-green-500 hover:bg-green-600 hover:border-green-600"
+                className=" text-black px-4 py-2 border bg-gray-100  duration-500 hover:bg-white hover:shadow-lg"
               >
                 Add to Cart
               </button>
-              <button className="bg-blue-500 text-white px-4 py-2 border border-blue-500 hover:bg-blue-600 hover:border-blue-600"onClick={() => {
+              <button className=" text-black px-4 py-2 border bg-gray-100  duration-500 hover:bg-white hover:shadow-lg"onClick={() => {
                 addToCart(product.id);
                 navigate('/cartitems')
               }}>

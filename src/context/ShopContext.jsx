@@ -1,26 +1,26 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
+import data from '../../public/product_data.json'
 export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
-  const [darkMode, setDarkMode] = useState(false); // State to control dark mode
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode")); // State to control dark mode
   const [networkError, setNetWorkError] = useState(false); // State to control dark mode
 
   useEffect(() => {
     // Fetch data from the API
     axios
-      .get("https://dummyjson.com/products")
+       .get("https://dummyjson.com/products")
       .then((response) => {
         setProducts(response.data.products);
         setNetWorkError(false);
       })
       .catch((error) => {
         if(error.message == "Network Error"){
-          setNetWorkError(!networkError);
+          // setNetWorkError(!networkError);
         }
         console.error("Error fetching data:", error);
       });

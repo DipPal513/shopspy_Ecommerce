@@ -1,9 +1,10 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const NotFound = () => {
   return (
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere dolorum, soluta modi omnis adipisci quasi nihil asperiores dolorem. Corrupti sed vero et ullam recusandae fuga tenetur, similique, veniam veritatis error fugit natus maiores ex! Quae ipsa corporis voluptatem labore ipsum, pariatur magnam, sunt quidem voluptates, nam laudantium nesciunt reiciendis. Non debitis quidem pariatur enim aliquam esse eum rem ullam, obcaecati saepe ducimus doloribus ad recusandae illum blanditiis est accusamus, tempora accusantium repellat expedita libero! Cumque, deleniti ad commodi vero quidem possimus eos assumenda iure, natus debitis dignissimos architecto quae eligendi illo, veniam ipsum. At reprehenderit adipisci repudiandae, et soluta consectetur.
+    <div className='max-w-screen-sm mx-auto text-center'>
+      <img src="https://img.freepik.com/free-vector/hand-drawn-404-error_23-2147738999.jpg?size=626&ext=jpg&ga=GA1.1.1320449184.1698051876&semt=ais" class="img-fluid rounded-top" alt=""/>
+      <button className="bg-red-500 py-5 px-10 text-white mt-5 hover:bg-red-600"><Link to={"/"}>Back to Home</Link></button>
     </div>
   )
 }

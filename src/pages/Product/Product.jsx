@@ -33,7 +33,7 @@ const Product = ({ products, load}) => {
                 : product.description}
             </p>
             {product.description.length > 150 && (
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/products/${product.id}`}>
                 <button className="text-blue-500 hover:underline mt-2">
                   See More
                 </button>
@@ -49,7 +49,7 @@ const Product = ({ products, load}) => {
               >
                 Add to Cart
               </button>
-              <Link to={`/product/${product.id}`}>
+              <Link to={`/products/${product.id}`}>
                 <button className=" ms-4 bg-white-600 text-black shadow px-4 py-2 hover:bg-red-500
                 hover:text-white transition duration-300 border-0 rounded-none dark:bg-white dark:hover:bg-blue-400">
                   Details
